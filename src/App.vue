@@ -1,14 +1,14 @@
 <template>
- <inicio-component></inicio-component>
+ <router-view></router-view>
 </template>
 
 <script>
-import InicioComponent from './components/InicioComponent.vue'
+
 
 export default {
   name: 'App',
   components: {
-    InicioComponent
+    
   }
 }
 </script>
