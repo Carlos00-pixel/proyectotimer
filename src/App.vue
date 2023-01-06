@@ -8,7 +8,13 @@
 export default {
   name: 'App',
   components: {
-    
+
+  },
+  methods:{
+    checkToken(){
+      //var token = localStorage.getItem('token');
+      
+    }
   }
 }
 </script>

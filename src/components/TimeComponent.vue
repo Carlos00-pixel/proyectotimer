@@ -10,12 +10,13 @@
       <button @click="running = true">Comenzar</button>
       <button @click="running = false">Pausar</button>
       <button @click="resetTimer()">Reset</button>
-
+      <router-link to="/menu">Volver</router-link>
     </div>
   </template>
   
   <script>
   export default {
+    name:"TimeComponent",
     data() {
       return {
         hours: 4,

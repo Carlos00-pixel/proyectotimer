@@ -1,40 +1,19 @@
 <template>
-  <div v-if="empresas">
-    <h1 v-for="emp in empresas" :key="emp">{{ emp.nombreEmpresa }}</h1>
-  </div>
   <div>
-    <ul>
-      <li v-for="tim in timers" :key="tim">{{ tim.pausa }}</li>
-    </ul>
+    <router-link to="/login">Admin</router-link><br/>
+    <router-link to="/visitante">Visitante</router-link>
   </div>
-  <router-link to="/time">Timer</router-link>
-  
 </template>
 
 <script>
-import TimerService from '@/services/TimerService';
-const service = new TimerService();
 export default {
-name:"InicioComponent",
-data(){
-  return {
-    empresas:[],
-    timers:[]
-  }
-},
-mounted(){
-  service.getEmpresas().then((result)=>{
-    this.empresas = result
-  });
-
-  service.getTimers().then((result)=>{
-    this.timers = result
-  })
-
-}
-}
+  name: "InicioComponent",
+  data() {
+    return {
+    };
+  },
+  
+};
 </script>
 
-<style>
-
-</style>
+<style></style>
