@@ -35,10 +35,10 @@ const routes = [
         path:"/data", component:DataComponent
     },
     {
-        path:"/update", component:UpdateComponent
+        path:"/delete/:idEmpresa", component:DeleteComponent
     },
     {
-        path:"/delete", component:DeleteComponent
+        path:"/update", component:UpdateComponent
     }
 
 ]
