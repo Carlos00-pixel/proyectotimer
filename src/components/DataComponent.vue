@@ -43,15 +43,13 @@ export default {
       });
     },
     filtrarTabla(idtabla) {
-      var idTablaTIEMPOS_EMPRESAS_SALAS = this.getTiempo_Empresa.find(
-        (i) => i.idEmpresa === idtabla
-      );
+      var idTablaTIEMPOS_EMPRESAS_SALAS = this.getTiempo_Empresa.find((i) => i.idEmpresa === idtabla);
       console.log(idTablaTIEMPOS_EMPRESAS_SALAS.id);
       console.log(idTablaTIEMPOS_EMPRESAS_SALAS.idEmpresa);
       console.log(idTablaTIEMPOS_EMPRESAS_SALAS.idSala);
       this.deleteTiemposSalEmp(idTablaTIEMPOS_EMPRESAS_SALAS.id);
-      this.deleteEmp(idTablaTIEMPOS_EMPRESAS_SALAS.idEmpresa);
-      this.deleteSal(idTablaTIEMPOS_EMPRESAS_SALAS.idSala);
+      // this.deleteEmp(idTablaTIEMPOS_EMPRESAS_SALAS.idEmpresa);
+      // this.deleteSal(idTablaTIEMPOS_EMPRESAS_SALAS.idSala);
       this.reload = true;
     },
     deleteTiemposSalEmp(idTablas) {
@@ -72,8 +70,9 @@ export default {
 
   },
   watch: {
-    "this.reload"(newValue, oldValue) {
+    "reload"(newValue, oldValue) {
       if (newValue != oldValue) {
+        this.reload = false;
         this.getDatos();
       }
     },
