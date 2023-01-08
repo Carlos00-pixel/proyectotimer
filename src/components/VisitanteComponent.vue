@@ -1,6 +1,6 @@
 <template>
   <div v-if="timers">
-    <table border="2px">
+    <table class="table table-info">
       <thead>
         <tr>
           <th>Empresa</th>
@@ -14,7 +14,7 @@
         </tr>
       </tbody>
     </table>
-    <router-link to="/">Home</router-link>
+    <router-link class="btn btn-warning" to="/">Home</router-link>
   </div>
 
   <div>

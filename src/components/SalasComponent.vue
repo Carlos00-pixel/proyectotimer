@@ -1,12 +1,12 @@
 <template>
   <form v-on:submit.prevent="postSalaAndEmpresa()">
-    <label>Sala</label><br />
-    <input type="text" v-model="nombreSala" /><br />
     <label>Nombre Empresa</label><br />
-    <input type="text" v-model="nombreEmpresa" /><br />
-    <button>Confirmar</button>
+    <input type="text" v-model="nombreEmpresa" class="form-control"/><br />
+    <label>Sala</label><br />
+    <input type="text" v-model="nombreSala" class="form-control" /><br />
+    <button class="btn btn-success">Confirmar</button>
   </form>
-  <router-link to="/menu">Volver</router-link>
+  <br/><router-link class="btn btn-warning" to="/menu">Volver</router-link>
 </template>
 
 <script>
@@ -18,7 +18,6 @@ export default {
     return {
       nombreSala: "",
       nombreEmpresa: "",
-      reload:false,
 
     };
   },
@@ -39,7 +38,7 @@ export default {
     postSalaAndEmpresa() {
       this.postEmpresa();
       this.postSala();
-      this.$router.push("/confirm/" + this.reload)
+      this.$router.push("/confirm")
     },
   },
 };

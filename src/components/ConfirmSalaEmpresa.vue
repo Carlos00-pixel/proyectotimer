@@ -18,7 +18,6 @@ export default {
   name: "ConfirmSalaEmpresa",
   data() {
     return {
-      reload:false,
       names: {
         nombreSala: "",
         nombreEmpresa: "",
@@ -39,7 +38,7 @@ export default {
         console.log("lo que dios quiera");
         this.$router.push("/salas");
       });
-      this.reload=true;
+     
     },
     tenerSalasAndEmpresa() {
       service.getSala().then((res) => {
@@ -61,7 +60,7 @@ export default {
     this.tenerSalasAndEmpresa();
   },
   watch: {
-    "$route.params.reload"(newValue, oldValue) {
+    "datos.idSala"(newValue, oldValue) {
       if (newValue != oldValue) {
         this.tenerSalasAndEmpresa();
       }
