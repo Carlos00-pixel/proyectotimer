@@ -1,4 +1,4 @@
 var Global = {
-    urlApiTimer: "https://localhost:7004"
+    urlApiTimer: "https://apitimers2022carlos.azurewebsites.net/"
 }
 export default Global;

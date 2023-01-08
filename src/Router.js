@@ -9,6 +9,8 @@ import VisitanteComponent from "./components/VisitanteComponent.vue";
 import DataComponent from "./components/DataComponent.vue";
 import DeleteComponent from "./components/DeleteComponent.vue";
 import UpdateComponent from "./components/UpdateComponent.vue";
+import DescansoTimer from  "./components/DescansoComponent.vue"
+
 const routes = [
     {
         path:"/", component:InicioComponent
@@ -39,6 +41,10 @@ const routes = [
     },
     {
         path:"/update", component:UpdateComponent
+    }
+    ,
+    {
+        path:"/descanso", component:DescansoTimer
     }
 
 ]
