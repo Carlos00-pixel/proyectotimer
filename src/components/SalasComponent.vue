@@ -18,7 +18,6 @@ export default {
     return {
       nombreSala: "",
       nombreEmpresa: "",
-      reload:false,
 
     };
   },
@@ -39,7 +38,7 @@ export default {
     postSalaAndEmpresa() {
       this.postEmpresa();
       this.postSala();
-      this.$router.push("/confirm/" + this.reload)
+      this.$router.push("/confirm")
     },
   },
 };

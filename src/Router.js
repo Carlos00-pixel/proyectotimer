@@ -7,8 +7,6 @@ import TimeComponent from "./components/TimeComponent.vue";
 import ConfirmSalaEmpresa from "./components/ConfirmSalaEmpresa.vue";
 import VisitanteComponent from "./components/VisitanteComponent.vue";
 import DataComponent from "./components/DataComponent.vue";
-import DeleteComponent from "./components/DeleteComponent.vue";
-import UpdateComponent from "./components/UpdateComponent.vue";
 const routes = [
     {
         path:"/", component:InicioComponent
@@ -26,7 +24,7 @@ const routes = [
         path:"/time",component:TimeComponent
     },
     {
-        path:"/confirm/:reload", component:ConfirmSalaEmpresa
+        path:"/confirm", component:ConfirmSalaEmpresa
     },
     {
         path:"/visitante", component:VisitanteComponent
@@ -34,13 +32,7 @@ const routes = [
     {
         path:"/data", component:DataComponent
     },
-    {
-        path:"/delete/:idEmpresa", component:DeleteComponent
-    },
-    {
-        path:"/update", component:UpdateComponent
-    }
-
+   
 ]
 
 const router = createRouter({
