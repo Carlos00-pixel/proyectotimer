@@ -1,6 +1,6 @@
 <template>
   <div v-if="timers">
-    <table border="2px">
+    <table class="table table-info">
       <thead>
         <tr>
           <th>Empresa</th>
@@ -13,12 +13,12 @@
           <td>{{ time.empresa }}</td>
           <td>{{ time.sala }}</td>
           <td>
-            <button @click="alertDelete(time.idEmpresa)">Borrar Alert</button>
+            <button class="btn btn-danger" @click="alertDelete(time.idEmpresa)">Borrar</button>
           </td>
         </tr>
       </tbody>
     </table>
-    <router-link to="/menu">Volver</router-link>
+    <router-link class="btn btn-warning" to="/menu">Volver</router-link>
   </div>
 </template>
 
