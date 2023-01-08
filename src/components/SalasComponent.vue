@@ -1,9 +1,9 @@
 <template>
   <form v-on:submit.prevent="postSalaAndEmpresa()">
-    <label>Sala</label><br />
-    <input type="text" v-model="nombreSala" /><br />
     <label>Nombre Empresa</label><br />
     <input type="text" v-model="nombreEmpresa" /><br />
+    <label>Sala</label><br />
+    <input type="text" v-model="nombreSala" /><br />
     <button>Confirmar</button>
   </form>
   <router-link to="/menu">Volver</router-link>
