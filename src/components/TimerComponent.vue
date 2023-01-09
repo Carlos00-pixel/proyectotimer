@@ -118,7 +118,7 @@ export default {
     },
     startAll() {
       
-      if(this.counters!=[]){
+      if(this.counters==[]){
               Swal.fire(
         'No hay temporizadores para iniciar',
         '',
