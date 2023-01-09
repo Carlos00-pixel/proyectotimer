@@ -3,7 +3,7 @@ import InicioComponent from "./components/InicioComponent.vue";
 import LoginComponent from "./components/LoginComponent.vue";
 import MenuComponent from "./components/MenuComponent.vue";
 import SalasComponent from "./components/SalasComponent.vue";
-import TimeComponent from "./components/TimeComponent.vue";
+import TimerComponent from "./components/TimerComponent.vue";
 import ConfirmSalaEmpresa from "./components/ConfirmSalaEmpresa.vue";
 import VisitanteComponent from "./components/VisitanteComponent.vue";
 import DataComponent from "./components/DataComponent.vue";
@@ -23,7 +23,7 @@ const routes = [
         path:"/salas", component:SalasComponent
     },
     {
-        path:"/time",component:TimeComponent
+        path:"/time",component:TimerComponent
     },
     {
         path:"/confirm", component:ConfirmSalaEmpresa

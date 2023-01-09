@@ -23,23 +23,26 @@
 
     </div>
     <label>Estado {{estado}}</label>
-    <p>Tiempo restante: {{ hours }} horas {{ minutes }} minutos {{ seconds }} segundos</p>
+    <p>Tiempo restante:  {{ minutes }} minutos {{ seconds }} segundos</p>
   </div>
 </template>
 
 <script>
 import AdminService from "@/services/AdminService";
 const service = new AdminService();
+import TimerService from '@/services/TimerService'
+const serviceTimer = new TimerService();
 export default {
   name: "VisitanteComponent",
   data() {
     return {
       timers: [],
-      hours:0,
       minutes:0,
       seconds:0,
       running:true,
-      estado:"WORK"
+      estado:"WORK",
+      tiempoTotal:0,
+      tiempoEjecucion:0
     };
   },
   methods: {
@@ -65,7 +68,7 @@ export default {
             this.minutes = 0;
             this.seconds = 0;
             this.running = false;
-            this.estado="Descanso"
+            
 
 
           }
@@ -76,23 +79,28 @@ export default {
   },
   mounted() {
     this.getDatos();
-    var timer = JSON.parse(localStorage.getItem('tiempo'));
-    this.hours=timer.hours
-    this.minutes=timer.minutes
-    this.seconds=timer.seconds
-       
-    this.temporizador()
+    serviceTimer.getCategoriaTimer(8).then(res=>{
+      this.tiempoEjecucion=res
+    })
+    serviceTimer.getCategoriaTimer(7).then(res=>{
+      this.tiempoTotal=res
+    })
+
+    var today = new Date();
+     
+    today.getMinutes();
+
+    
+
+    
+    
+     
+   
   },
   watch:{
     estado:function(newValue, oldValue){
         if (newValue != oldValue) {
-            
-            var timerD = JSON.parse(localStorage.getItem('descanso'));
-            this.hours=0
-            this.minutes=timerD.minutes
-            this.seconds=timerD.seconds
-            this.running=true   
-            this.temporizador();
+          console.log("nada")
         }
     }
 }

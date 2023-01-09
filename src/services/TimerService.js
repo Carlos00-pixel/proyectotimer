@@ -25,4 +25,39 @@ export default class TimerService {
             })
         })
     }
+
+    getCategoriaTimer(id) {
+        return new Promise (function (resolve){
+            var request  = "/api/CategoriasTimer/"+id;            var url = Global.urlApiTimer + request;
+           
+            axios.get(url).then(res=>{
+                
+                resolve(res.data);
+            })
+        })
+    }
+
+    postCategoriaTimer(objeto){
+        return new Promise (function (resolve){
+            var request  = "/api/CategoriasTimer";
+            var url = Global.urlApiTimer + request;
+            
+            axios.post(url,objeto).then(res=>{
+                
+                resolve(res);
+            })
+        })
+    }
+
+    putCategoriaTimer(objeto){
+        return new Promise (function (resolve){
+            var request  = "/api/CategoriasTimer";
+            var url = Global.urlApiTimer+request;
+            
+            axios.put(url,objeto).then(res=>{
+                
+                resolve(res);
+            })
+        })
+    }
 }

@@ -4,7 +4,7 @@
       <router-link class="nav-link active" to="/">Home</router-link><br /><br />
 
       <router-link class="nav-link " to="/time"
-        >Establecer Temporizador</router-link
+        >Establecer Temporizadores</router-link
       ><br /><br />
 
       <router-link class="nav-link" to="/salas">Añadir Empresa</router-link
