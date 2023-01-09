@@ -11,6 +11,7 @@
       <input style="width:350px" class="form-control mr-3" type="number" min="0" max="59" id="minutes" v-model="minutes" />
       <button style="margin-top:10px; width: 350px;" class="btn btn-primary" @click="createCounter">Crear Temporizador</button>
       <button class="btn btn-primary" style="width:350px;margin-top: 10px;" @click="startAll">Iniciar </button>
+      <button class="btn btn-primary" style="width:350px;margin-top: 10px;" @click="reset">Reset </button>
     </div>
     
     <div class="counters mt-3">
@@ -54,7 +55,36 @@ export default {
       
     }
   },
+  mounted(){
+    this.counters=JSON.parse(localStorage.getItem('contadores'))
+  },
   methods: {
+    reset(){
+      if(this.counters!=[]){
+              Swal.fire(
+        'No hay temporizadores',
+        '',
+        'warning'
+      )
+      }else{
+        Swal.fire({
+        title: '¿Esta seguro que quiere borrar los temporizadores?',
+        text: "Es irreversible",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.counters=[]
+          localStorage.setItem("contadores",JSON.stringify(this.counters))
+        }
+      })
+      }
+      
+      
+    },
     createCounter() {
       if(this.name=="" || this.minutes==0){
         Swal.fire({
@@ -70,14 +100,22 @@ export default {
           isRunning: false,
           name: this.name.toUpperCase(),
           })
+
+          localStorage.setItem("contadores",JSON.stringify(this.counters))
          
       }
      
     },
     startAll() {
       
-
-      for(let i=0 ; i<this.counters.length;i++){
+      if(this.counters!=[]){
+              Swal.fire(
+        'No hay temporizadores para iniciar',
+        '',
+        'warning'
+        )
+      }else{
+        for(let i=0 ; i<this.counters.length;i++){
         this.aux+=this.counters[i].minutes;
       }
       var today = new Date();
@@ -137,6 +175,8 @@ export default {
           }
         })
       }
+      }
+      
     },
     startNext(index) {
       this.counters = this.counters.map((counter, i) => {

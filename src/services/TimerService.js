@@ -27,8 +27,9 @@ export default class TimerService {
     }
 
     getCategoriaTimer(id) {
-        return new Promise (function (resolve){
-            var request  = "/api/CategoriasTimer/"+id;            var url = Global.urlApiTimer + request;
+        return  new Promise (function (resolve){
+            var request  = "/api/CategoriasTimer/"+id;            
+            var url = Global.urlApiTimer + request;
            
             axios.get(url).then(res=>{
                 

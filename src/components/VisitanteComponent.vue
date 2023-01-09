@@ -1,29 +1,12 @@
 <template>
-  <div v-if="timers">
-    <table class="table table-info">
-      <thead>
-        <tr>
-          <th>Empresa</th>
-          <th>Sala</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="time in timers" :key="time">
-          <td>{{ time.empresa }}</td>
-          <td>{{ time.sala }}</td>
-        </tr>
-      </tbody>
-    </table>
-    <router-link class="btn btn-warning" to="/">Home</router-link>
+  <div style="position:relative; left:650px">
+
+    <router-link style="width:300px;margin-top: 35px;" class="btn btn-warning" to="/">Home</router-link>
+    <button style="display: block;width:300px;margin-top: 10px;" class="btn btn-warning" @click="ver">Cargar</button>
   </div>
 
-  <div>
-    <label>Sala 1</label><br/>
-    <div>
-
-    </div>
-    <label>Estado {{estado}}</label>
-    <p>Tiempo restante:  {{ minutes }} minutos {{ seconds }} segundos</p>
+  <div style="position:relative;left:600px;width:450px;top:100px">
+    <p style="font-size:23px">Tiempo restante: <b> {{ minutes }}</b> minutos <b>{{ seconds }}</b> segundos</p>
   </div>
 </template>
 
@@ -41,8 +24,16 @@ export default {
       seconds:0,
       running:true,
       estado:"WORK",
-      tiempoTotal:0,
-      tiempoEjecucion:0
+      tiempoTotal:{
+        idCategoria:0,
+        categoria:"",
+        duracion:0
+      },
+      tiempoEjecucion:{
+        idCategoria:0,
+        categoria:"",
+        duracion:0
+      }
     };
   },
   methods: {
@@ -75,24 +66,45 @@ export default {
         }
       }, 1000)
            
+    },
+    ver(){
+      var today = new Date();
+     
+      var now =today.getMinutes();
+      
+      if(now > this.tiempoEjecucion.duracion){
+        var tiempoRestante = now - this.tiempoEjecucion.duracion
+        var aux = this.tiempoTotal.duracion - tiempoRestante
+        this.minutes=aux;
+        this.running=true;
+        this.temporizador()
+        
+      }else{
+        var aux2= 60 - this.tiempoEjecucion.duracion
+        if(aux2 >= this.tiempoTotal){
+          this.minutes=0
+        }else{
+          var tiempoRestante2 = now - this.tiempoEjecucion.duracion
+          var aux3 = this.tiempoTotal.duracion - tiempoRestante2
+          this.minutes=aux3;
+          this.running=true;
+          this.temporizador()
+        }
+      }
     }
   },
   mounted() {
     this.getDatos();
     serviceTimer.getCategoriaTimer(8).then(res=>{
       this.tiempoEjecucion=res
+
     })
+    
     serviceTimer.getCategoriaTimer(7).then(res=>{
       this.tiempoTotal=res
     })
-
-    var today = new Date();
-     
-    today.getMinutes();
-
     
 
-    
     
      
    
