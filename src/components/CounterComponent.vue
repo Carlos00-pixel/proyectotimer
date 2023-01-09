@@ -17,7 +17,7 @@
 
         </div>
     </div>
-    <div id="toasts"></div>
+    
   </template>
 <script>
   export default {

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div>
     <router-link style="position:relative; left:880px;top: 0px;" class="btn btn-warning" to="/menu">Volver</router-link>
   </div>
 
@@ -30,6 +31,8 @@
       />
     </div>
   </div>
+  </div>
+ 
 </template>
 <script>
 import Swal from 'sweetalert2'
@@ -56,16 +59,23 @@ export default {
     }
   },
   mounted(){
-    this.counters=JSON.parse(localStorage.getItem('contadores'))
+    if(JSON.parse(localStorage.getItem('contadores'))==[]){
+      return
+      
+    }else{
+      this.counters=JSON.parse(localStorage.getItem('contadores'))
+      console.log("aqui")
+    }
+      
   },
   methods: {
     reset(){
-      if(this.counters!=[]){
+      if(this.counters==[]){
               Swal.fire(
         'No hay temporizadores',
         '',
         'warning'
-      )
+        )
       }else{
         Swal.fire({
         title: '¿Esta seguro que quiere borrar los temporizadores?',
