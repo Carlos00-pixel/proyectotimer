@@ -35,13 +35,6 @@ const routes = [
         path:"/data", component:DataComponent
     },
     {
-        path:"/delete/:idEmpresa", component:DeleteComponent
-    },
-    {
-        path:"/update", component:UpdateComponent
-    }
-    ,
-    {
         path:"/descanso", component:DescansoTimer
     }
 

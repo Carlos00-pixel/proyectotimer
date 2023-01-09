@@ -55,7 +55,7 @@ export default {
       this.delEmp = idTablaTIEMPOS_EMPRESAS_SALAS.idEmpresa;
       this.delSal = idTablaTIEMPOS_EMPRESAS_SALAS.idSala;
       this.deleteTiemposSalEmp(idTablaTIEMPOS_EMPRESAS_SALAS.id);
-      this.reload = true;
+      
     },
     alertDelete(idtabla) {
       this.filtrarTabla(idtabla);
@@ -78,6 +78,7 @@ export default {
             );
             this.deleteEmp();
             this.deleteSal();
+            this.reload = true;
           }
         });
     },
