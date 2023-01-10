@@ -1,18 +1,15 @@
 <template>
   <div>
-    <div>
-    <router-link style="position:relative; left:880px;top: 0px;" class="btn btn-warning" to="/menu">Volver</router-link>
-  </div>
-
-  <div class="container mt-5"  id="cajaForm">
-    <div class="form-inline mb-3"  style="width:350px;position: relative;left: 480px;">
+  <div>
+    <div class="flex-column navbar navbar-expand-lg navbar-light text-center">
       <label class="mr-3" for="name">Categoria:</label>
       <input style="width:350px" class="form-control mr-3" type="text" id="name" v-model="name" />
       <label class="mr-3" for="minutes">Minutos:</label>
-      <input style="width:350px" class="form-control mr-3" type="number" min="0" max="59" id="minutes" v-model="minutes" />
+      <input style="width:350px;" class="form-control mr-3" type="number" min="0" max="59" id="minutes" v-model="minutes" />
       <button style="margin-top:10px; width: 350px;" class="btn btn-primary" @click="createCounter">Crear Temporizador</button>
       <button class="btn btn-primary" style="width:350px;margin-top: 10px;" @click="startAll">Iniciar </button>
       <button class="btn btn-primary" style="width:350px;margin-top: 10px;" @click="reset">Reset </button>
+      <router-link style="width:350px;margin-top: 10px;font-family: 'Montserrat', sans-serif;" class="btn btn-warning" to="/menu">Volver</router-link>
     </div>
     
     <div class="counters mt-3">
@@ -262,15 +259,10 @@ export default {
 }
 </script>
 <style scoped>
-.counter {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
+label{
+  font-family: 'Montserrat', sans-serif;
 }
-
-#cajaForm{
-  position: relative;
-  left:  30px;
+button{
+  font-family: 'Montserrat', sans-serif;
 }
 </style>

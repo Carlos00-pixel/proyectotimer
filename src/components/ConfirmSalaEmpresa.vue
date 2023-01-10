@@ -1,14 +1,17 @@
 <template>
-  <div v-if="names">
-    <h1 style="color: red">Nombre Empresa</h1>
-    <h2>{{ names.nombreEmpresa }} IdEmpresa{{ datos.idEmpresa }}</h2>
-    <h1 style="color: blue">Nombre Sala</h1>
-    <h2>{{ names.nombreSala }} Id Sala{{ datos.idSala }}</h2>
+  <div class="flex-column navbar navbar-expand-lg navbar-light text-center">
+    <h1 style="font-family: 'Montserrat', sans-serif;">Por favor confirme los siguientes nombres</h1><br/>
+    <div v-if="names">
+      <h1 style="font-family: 'Montserrat', sans-serif;;color:red">Nombre Empresa</h1>
+      <h2 >{{ names.nombreEmpresa }}</h2>
+      <h1 style="font-family: 'Montserrat', sans-serif;;color:red">Nombre Sala</h1>
+      <h2 >{{ names.nombreSala }}</h2>
+    </div>
+    <div v-else>
+      <img src="../assets/images/load2.gif" />
+    </div>
+    <button style="margin-top:10px; width: 350px;font-family: 'Montserrat', sans-serif;" class="btn btn-success" @click="postDatosEmpresaSala()">Confirmar</button>
   </div>
-  <div v-else>
-    <img src="../assets/images/load2.gif" />
-  </div>
-  <button @click="postDatosEmpresaSala()">Confirmar</button>
 </template>
 
 <script>
@@ -38,7 +41,6 @@ export default {
         console.log("lo que dios quiera");
         this.$router.push("/salas");
       });
-     
     },
     tenerSalasAndEmpresa() {
       service.getSala().then((res) => {
@@ -69,4 +71,4 @@ export default {
 };
 </script>
 
-<style></style>
+<style>  </style>

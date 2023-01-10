@@ -1,24 +1,36 @@
 <template>
-  <div v-if="timers">
-    <table class="table table-info">
-      <thead>
-        <tr>
-          <th>Empresa</th>
-          <th>Sala</th>
-          <th>Borrar</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="time in timers" :key="time">
-          <td>{{ time.empresa }}</td>
-          <td>{{ time.sala }}</td>
-          <td>
-            <button class="btn btn-danger" @click="alertDelete(time.idEmpresa)">Borrar</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <router-link class="btn btn-warning" to="/menu">Volver</router-link>
+  <div class="flex-column navbar navbar-expand-lg navbar-light text-center">
+    <div v-if="timers">
+      <table class="table table-info" style="font-family: 'Montserrat', sans-serif;">
+        <thead>
+          <tr>
+            <th>Empresa</th>
+            <th>Sala</th>
+            <th>Borrar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="time in timers" :key="time">
+            <td>{{ time.empresa }}</td>
+            <td>{{ time.sala }}</td>
+            <td>
+              <button
+                class="btn btn-danger"
+                @click="alertDelete(time.idEmpresa)"
+              >
+                Borrar
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <router-link
+        style="margin-top: 10px; width: 350px;font-family: 'Montserrat', sans-serif;"
+        class="btn btn-warning"
+        to="/menu"
+        >Volver</router-link
+      >
+    </div>
   </div>
 </template>
 
@@ -29,11 +41,11 @@ export default {
   name: "VisitanteComponent",
   data() {
     return {
-      reload:false,
+      reload: false,
       timers: [],
       getTiempo_Empresa: [],
-      delSal:"",
-      delEmp:""
+      delSal: "",
+      delEmp: "",
     };
   },
   methods: {
@@ -55,26 +67,22 @@ export default {
       this.delEmp = idTablaTIEMPOS_EMPRESAS_SALAS.idEmpresa;
       this.delSal = idTablaTIEMPOS_EMPRESAS_SALAS.idSala;
       this.deleteTiemposSalEmp(idTablaTIEMPOS_EMPRESAS_SALAS.id);
-      
     },
     alertDelete(idtabla) {
       this.filtrarTabla(idtabla);
       this.$swal
         .fire({
-          title: "Are you sure?",
-          text: "You won't be able to revert this!",
+          title: "¿Desea borrar los datos?",
+          text: "No hay vuelta atrás",
           icon: "warning",
-          showCancelButton: true,
+          showCancelButton: false,
           confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Yes, delete it!",
+          confirmButtonText: "Borrar",
         })
         .then((result) => {
           if (result.isConfirmed) {
             this.$swal.fire(
-              "Deleted!",
-              "Your file has been deleted.",
-              "success"
+              "Borrado",
             );
             this.deleteEmp();
             this.deleteSal();
@@ -100,14 +108,14 @@ export default {
     });
   },
   watch: {
-    "reload"(newValue, oldValue) {
+    reload(newValue, oldValue) {
       if (newValue != oldValue) {
         this.reload = false;
         this.getDatos();
       }
     },
-}
-}
+  },
+};
 </script>
 
 <style></style>

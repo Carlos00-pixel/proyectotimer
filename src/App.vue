@@ -20,4 +20,5 @@ export default {
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Amiko&family=Montserrat&family=Roboto:ital,wght@1,500&display=swap");
 </style>

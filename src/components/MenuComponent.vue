@@ -1,19 +1,39 @@
 <template>
   <div>
-    <nav class="flex-column navbar navbar-expand-lg navbar-light bg-light">
-      <router-link class="nav-link active" to="/">Home</router-link><br /><br />
+    <nav class="flex-column navbar navbar-expand-lg navbar-light">
+      <router-link
+      style="margin-top: 10px; width: 320px;font-family: 'Montserrat', sans-serif;"
+        class="btn btn-primary"
+        to="/"
+        >Home</router-link
+      ><br /><br />
 
-      <router-link class="nav-link " to="/time"
+      <router-link
+        style="margin-top: 10px; width: 320px;font-family: 'Montserrat', sans-serif;"
+        class="btn btn-primary"
+        to="/time"
         >Establecer Temporizadores</router-link
       ><br /><br />
 
-      <router-link class="nav-link" to="/salas">Añadir Empresa</router-link
+      <router-link
+      style="margin-top: 10px; width: 320px;font-family: 'Montserrat', sans-serif;"
+        class="btn btn-primary"
+        to="/salas"
+        >Añadir Empresa</router-link
       ><br /><br />
 
-      <router-link class="nav-link" to="/data">Ver Datos</router-link
+      <router-link
+       style="margin-top: 10px; width: 320px;font-family: 'Montserrat', sans-serif;"
+        class="btn btn-primary"
+        to="/data"
+        >Ver Datos</router-link
       ><br /><br />
 
-      <router-link class="nav-link" @click="outMenu()" to="/"
+      <router-link
+       style="margin-top: 10px; width: 320px;font-family: 'Montserrat', sans-serif;"
+        class="btn btn-primary"
+        @click="outMenu()"
+        to="/"
         >Cerrar Sesión</router-link
       ><br /><br />
     </nav>
@@ -31,7 +51,8 @@ export default {
     passAdmin() {
       var token = localStorage.getItem("token");
       if (!token) {
-        this.$router.push("/");611
+        this.$router.push("/");
+        611;
       }
     },
   },
@@ -41,4 +62,6 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+
+</style>
